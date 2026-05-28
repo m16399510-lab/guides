@@ -18,6 +18,7 @@ const { module } = Astro.props;
 const { Content, frontmatter, getHeadings } = module;
 const headings = getHeadings ? getHeadings() : [];
 const toc = headings.filter((heading) => heading.depth >= 2 && heading.depth <= 3);
+const quickActions = Array.isArray(frontmatter.quickActions) ? frontmatter.quickActions : [];
 const basePath = import.meta.env.BASE_URL;
 const homePath = basePath.endsWith("/") ? basePath : `${basePath}/`;
 ---
@@ -31,18 +32,19 @@ const homePath = basePath.endsWith("/") ? basePath : `${basePath}/`;
       <p>{frontmatter.description}</p>
     </section>
 
-    <nav class="quick-actions" aria-label="快速选择购买方案">
-      <a href="#方案一直购密钥">
-        <span>方案一</span>
-        <strong>直购密钥</strong>
-        <small>买完复制密钥，直接填写</small>
-      </a>
-      <a href="#方案二注册账号充值额度">
-        <span>方案二</span>
-        <strong>注册账号，充值额度</strong>
-        <small>可查余额和消耗明细</small>
-      </a>
-    </nav>
+    {
+      quickActions.length > 0 && (
+        <nav class="quick-actions" aria-label="快速入口">
+          {quickActions.map((action) => (
+            <a href={action.href}>
+              <span>{action.label}</span>
+              <strong>{action.title}</strong>
+              <small>{action.description}</small>
+            </a>
+          ))}
+        </nav>
+      )
+    }
 
     <details class="mobile-toc">
       <summary>目录</summary>
