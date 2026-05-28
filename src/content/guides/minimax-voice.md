@@ -1,27 +1,10 @@
 ---
-title: "双面镜（MiniMax 语音引擎）配置教程"
+title: "MiniMax 语音引擎配置教程"
 description: "按步骤完成 MiniMax 账号、API Key、Group ID、音色 ID 和 APP 内配置。"
 date: "2026-05-28"
 order: 2
 slug: "minimax-voice"
 source: "https://guides.yuyanjia.top/guides/minimax-voice"
-quickActions:
-  - label: "01"
-    title: "注册 MiniMax"
-    description: "拿到 API Key 和 Group ID"
-    href: "#第一步获取发声魔力注册-minimax-账号"
-  - label: "02"
-    title: "获取音色 ID"
-    description: "官方音色或克隆音色"
-    href: "#第二步寻找-ta-的声音获取音色-id"
-  - label: "03"
-    title: "APP 内配置"
-    description: "填入密钥、Group ID 和音色"
-    href: "#第三步为猫头鹰装上引擎app-内配置"
-  - label: "04"
-    title: "使用与排雷"
-    description: "语音、视频通话和注意事项"
-    href: "#第四步如何使用语音与视频通话"
 ---
 
 :::success
@@ -66,7 +49,7 @@ quickActions:
 
 ![](/assets/minimax-voice/step-03.png)
 
-接着，点击左侧的 **【账户信息】**，把你的**Group ID**也复制下来，和密钥存在一起。
+接着，点击左侧的 **【账户信息】**，把你的 **Group ID** 也复制下来，和密钥存在一起。
 
 ![](/assets/minimax-voice/step-04.png)
 
@@ -141,7 +124,7 @@ quickActions:
 为了保证双面镜不爆炸，请务必阅读以下注意事项：
 
 :::danger
-📱 安卓设备须更新：安卓用户请务必下载安装**最新版 APK**，否则无法使用视频功能！
+📱 安卓设备须更新：安卓用户请务必下载安装 **最新版 APK**，否则无法使用视频功能！
 
 👉 [点击此处](https://wwbex.lanzoul.com/is5bQ3k5uczg)下载最新安装包 （提取码：cc4c）
 
@@ -153,7 +136,7 @@ quickActions:
 :::
 
 :::color3
-👁️ 视觉模型要求：视频通话需要 AI 能够“看图”。请确保你使用的 API 模型支持视觉功能（如果你发送图片功能可以用，视频也就可以用）。**逆向渠道（如 [薄甲逆] 系列小克）不支持发送图片，会无法读取视频内容。**
+👁️ 视觉模型要求：视频通话需要 AI 能够“看图”。请确保你使用的 API 模型支持视觉功能（如果你发送图片功能可以用，视频也就可以用）。 **逆向渠道（如 [薄甲逆] 系列小克）不支持发送图片，会无法读取视频内容。**
 
 :::
 
@@ -170,7 +153,7 @@ quickActions:
 :::success
 💰 灵魂拷问：到底怎么扣费？
 
-**聊天的钱（API）：**视频通话时，虽然 UI 表现为一句一句发出来，但实际上只调用了一次 API。你平时聊天回复多少钱，视频回复一次就花多少钱，不会重复扣费。
+**聊天的钱（API）：** 视频通话时，虽然 UI 表现为一句一句发出来，但实际上只调用了一次 API。你平时聊天回复多少钱，视频回复一次就花多少钱，不会重复扣费。
 
 **说话的钱（MiniMax）：** 语音朗读的费用是由 MiniMax 平台收取的（消耗你账号里的 15 元代金券），按字数（Token）计费，与你使用的聊天 API 渠道无关。这是两套独立的计费系统哦。
 

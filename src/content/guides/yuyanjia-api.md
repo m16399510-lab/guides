@@ -5,15 +5,6 @@ date: "2026-05-28"
 order: 1
 slug: "yuyanjia-api"
 source: "https://guides.yuyanjia.top/guides/yuyanjia-api"
-quickActions:
-  - label: "方案一"
-    title: "直购密钥"
-    description: "买完复制密钥，直接填写"
-    href: "#方案一直购密钥"
-  - label: "方案二"
-    title: "注册账号，充值额度"
-    description: "可查余额和消耗明细"
-    href: "#方案二注册账号充值额度"
 ---
 
 :::success
@@ -293,6 +284,6 @@ API 密钥栏：粘贴刚才复制的密钥。
 
 自家站子最大的优势就是找得到人！
 
-**遇到任何问题直接戳我，只要我没在昏睡，一定马上赶到帮你解决！**🫡
+**遇到任何问题直接戳我，只要我没在昏睡，一定马上赶到帮你解决！** 🫡
 
 :::
