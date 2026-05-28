@@ -1,10 +1,10 @@
-﻿---
+---
 title: "预言家API站指南"
 description: "按步骤完成购买、充值、密钥填写和模型选择。"
 date: "2026-05-28"
 order: 1
 slug: "yuyanjia-api"
-source: "https://www.yuque.com/yuanyeyuanye-hjydo/grtsig/monbgl5w6avtv918?singleDoc"
+source: "https://guides.yuyanjia.top/guides/yuyanjia-api"
 ---
 
 :::success

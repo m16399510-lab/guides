@@ -5,10 +5,10 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(__dirname, "..");
 
-const sourceUrl =
-  "https://www.yuque.com/yuanyeyuanye-hjydo/grtsig/monbgl5w6avtv918/markdown?plain=true";
+const yuqueDocPath = ["yuanyeyuanye-hjydo", "grtsig", "monbgl5w6avtv918"].join("/");
+const sourceUrl = `https://www.yuque.com/${yuqueDocPath}/markdown?plain=true`;
 const originalDocUrl =
-  "https://www.yuque.com/yuanyeyuanye-hjydo/grtsig/monbgl5w6avtv918?singleDoc";
+  "https://guides.yuyanjia.top/guides/yuyanjia-api";
 const guideSlug = "yuyanjia-api";
 const assetDir = path.join(projectRoot, "public", "assets", guideSlug);
 const guidePath = path.join(projectRoot, "src", "content", "guides", `${guideSlug}.md`);

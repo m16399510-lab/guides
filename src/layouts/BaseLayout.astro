@@ -21,6 +21,7 @@ const buildMeta = JSON.parse(readFileSync("public/version.json", "utf8"));
     <meta name="app-build-id" content={buildMeta.buildId} />
     <meta name="app-built-at" content={buildMeta.builtAt} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href={`${homePath}favicon.svg`} />
     <title>{title}</title>
     <script is:inline>
       (() => {
