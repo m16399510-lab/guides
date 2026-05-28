@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const guideModules = import.meta.glob("../content/guides/*.md", { eager: true });
+const basePath = import.meta.env.BASE_URL;
+const homePath = basePath.endsWith("/") ? basePath : `${basePath}/`;
+const guides = Object.entries(guideModules)
+  .map(([file, module]) => {
+    const frontmatter = module.frontmatter;
+    const slug = frontmatter.slug ?? file.split("/").pop()?.replace(/\.md$/, "");
+
+    return {
+      title: frontmatter.title,
+      description: frontmatter.description,
+      date: frontmatter.date,
+      order: frontmatter.order ?? 999,
+      slug,
+      href: `${homePath}guides/${slug}/`
+    };
+  })
+  .sort((a, b) => a.order - b.order);
+---
+
+<BaseLayout title="预言家教程库" description="预言家 API 站教程与使用指南">
+  <main class="home-shell">
+    <section class="home-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Prophet API Archive</p>
+        <h1>预言家教程库</h1>
+      </div>
+    </section>
+
+    <section class="guide-list" aria-labelledby="guides-title">
+      <div class="section-heading">
+        <p class="eyebrow">Guides</p>
+        <h2 id="guides-title">教程列表</h2>
+      </div>
+
+      <div class="guide-grid">
+        {
+          guides.map((guide) => (
+            <article class="guide-card">
+              <a href={guide.href} aria-label={`打开 ${guide.title}`}>
+                <span class="guide-index">{String(guide.order).padStart(2, "0")}</span>
+                <h3>{guide.title}</h3>
+                <p>{guide.description}</p>
+                <span class="guide-action">查看教程</span>
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+</BaseLayout>

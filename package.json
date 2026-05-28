@@ -1,0 +1,17 @@
+{
+  "name": "yuyanjia-docs",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host 0.0.0.0",
+    "prebuild": "node scripts/prepare-build-meta.mjs",
+    "build": "astro build",
+    "preview": "astro preview --host 0.0.0.0",
+    "import:yuque": "node scripts/import-yuque-doc.mjs"
+  },
+  "dependencies": {
+    "astro": "^6.3.8",
+    "remark-directive": "^4.0.0"
+  }
+}

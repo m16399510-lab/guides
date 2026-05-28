@@ -1,0 +1,86 @@
+---
+import "../styles/global.css";
+import { readFileSync } from "node:fs";
+
+const {
+  title = "预言家教程库",
+  description = "预言家 API 站教程与使用指南"
+} = Astro.props;
+
+const basePath = import.meta.env.BASE_URL;
+const homePath = basePath.endsWith("/") ? basePath : `${basePath}/`;
+const buildMeta = JSON.parse(readFileSync("public/version.json", "utf8"));
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="app-version" content={buildMeta.version} />
+    <meta name="app-build-id" content={buildMeta.buildId} />
+    <meta name="app-built-at" content={buildMeta.builtAt} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <script is:inline>
+      (() => {
+        const saved = localStorage.getItem("theme");
+        const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme = saved || (systemDark ? "dark" : "light");
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="sky-field" aria-hidden="true"></div>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href={homePath}>
+          <span class="brand-mark">Y</span>
+          <span>
+            <strong>预言家教程库</strong>
+            <small>API 使用指南</small>
+          </span>
+        </a>
+        <div class="header-actions">
+          <nav class="top-nav" aria-label="主导航">
+            <a href={homePath}>教程列表</a>
+            <a href="https://api.yuyanjia.top" target="_blank" rel="noreferrer">API 站</a>
+            <a href="https://shop.yuyanjia.top/" target="_blank" rel="noreferrer">购买入口</a>
+          </nav>
+          <button class="theme-toggle" type="button" aria-label="切换深色或浅色模式" data-theme-toggle>
+            <span class="theme-toggle-icon" data-theme-icon>☾</span>
+            <span data-theme-label>深色</span>
+          </button>
+        </div>
+      </header>
+      <slot />
+    </div>
+
+    <script is:inline>
+      (() => {
+        const button = document.querySelector("[data-theme-toggle]");
+        const label = document.querySelector("[data-theme-label]");
+        const icon = document.querySelector("[data-theme-icon]");
+
+        const applyTheme = (theme) => {
+          document.documentElement.dataset.theme = theme;
+          localStorage.setItem("theme", theme);
+          if (label) label.textContent = theme === "dark" ? "深色" : "浅色";
+          if (icon) icon.textContent = theme === "dark" ? "☾" : "☼";
+        };
+
+        applyTheme(document.documentElement.dataset.theme || "dark");
+
+        button?.addEventListener("click", () => {
+          const current = document.documentElement.dataset.theme;
+          applyTheme(current === "dark" ? "light" : "dark");
+        });
+      })();
+    </script>
+    <script>
+      import { startAutoRefreshOnUpdate } from "../scripts/appUpdate.js";
+
+      startAutoRefreshOnUpdate();
+    </script>
+  </body>
+</html>

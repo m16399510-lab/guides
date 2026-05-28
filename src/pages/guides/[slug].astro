@@ -1,0 +1,117 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export function getStaticPaths() {
+  const guideModules = import.meta.glob("../../content/guides/*.md", { eager: true });
+
+  return Object.entries(guideModules).map(([file, module]) => {
+    const slug = module.frontmatter.slug ?? file.split("/").pop()?.replace(/\.md$/, "");
+
+    return {
+      params: { slug },
+      props: { module, slug }
+    };
+  });
+}
+
+const { module } = Astro.props;
+const { Content, frontmatter, getHeadings } = module;
+const headings = getHeadings ? getHeadings() : [];
+const toc = headings.filter((heading) => heading.depth >= 2 && heading.depth <= 3);
+const basePath = import.meta.env.BASE_URL;
+const homePath = basePath.endsWith("/") ? basePath : `${basePath}/`;
+---
+
+<BaseLayout title={`${frontmatter.title} | 预言家教程库`} description={frontmatter.description}>
+  <main class="guide-shell">
+    <section class="guide-hero">
+      <a class="back-link" href={homePath}>返回教程列表</a>
+      <p class="eyebrow">Yuyanjia API Guide</p>
+      <h1>{frontmatter.title}</h1>
+      <p>{frontmatter.description}</p>
+    </section>
+
+    <nav class="quick-actions" aria-label="快速选择购买方案">
+      <a href="#方案一直购密钥">
+        <span>方案一</span>
+        <strong>直购密钥</strong>
+        <small>买完复制密钥，直接填写</small>
+      </a>
+      <a href="#方案二注册账号充值额度">
+        <span>方案二</span>
+        <strong>注册账号，充值额度</strong>
+        <small>可查余额和消耗明细</small>
+      </a>
+    </nav>
+
+    <details class="mobile-toc">
+      <summary>目录</summary>
+      <nav aria-label="移动端目录">
+        {
+          toc.map((heading) => (
+            <a class={`toc-depth-${heading.depth}`} href={`#${heading.slug}`} data-toc-link>
+              {heading.text}
+            </a>
+          ))
+        }
+      </nav>
+    </details>
+
+    <div class="guide-layout">
+      <aside class="desktop-toc">
+        <p>目录</p>
+        <nav aria-label="教程目录">
+          {
+            toc.map((heading) => (
+              <a class={`toc-depth-${heading.depth}`} href={`#${heading.slug}`} data-toc-link>
+                {heading.text}
+              </a>
+            ))
+          }
+        </nav>
+      </aside>
+
+      <article class="guide-content">
+        <Content />
+      </article>
+    </div>
+  </main>
+
+  <script>
+    const links = Array.from(document.querySelectorAll("[data-toc-link]"));
+    const sections = links
+      .map((link) => document.getElementById(link.getAttribute("href").slice(1)))
+      .filter(Boolean);
+
+    const setActive = (id) => {
+      links.forEach((link) => {
+        const isActive = link.getAttribute("href") === `#${id}`;
+        link.toggleAttribute("aria-current", isActive);
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+
+        if (visible?.target?.id) setActive(visible.target.id);
+      },
+      {
+        rootMargin: "-20% 0px -70% 0px",
+        threshold: [0, 1]
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    document.querySelectorAll(".guide-content img").forEach((image) => {
+      image.setAttribute("loading", "lazy");
+      image.setAttribute("decoding", "async");
+      image.addEventListener("click", () => {
+        window.open(image.currentSrc || image.src, "_blank", "noopener,noreferrer");
+      });
+    });
+  </script>
+</BaseLayout>
