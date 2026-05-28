@@ -27,13 +27,34 @@ const guides = Object.entries(guideModules)
       <div class="hero-copy">
         <p class="eyebrow">Prophet API Archive</p>
         <h1>预言家教程库</h1>
+        <p>你90%的问题都能在宝宝教程里找到答案</p>
+      </div>
+      <div class="hero-stats">
+        <a class="stat-card" href="https://api.yuyanjia.top" target="_blank" rel="noreferrer">
+          <span class="stat-icon">🔮</span>
+          <strong>API 站</strong>
+          <small>api.yuyanjia.top</small>
+        </a>
+        <a class="stat-card" href="https://shop.yuyanjia.top" target="_blank" rel="noreferrer">
+          <span class="stat-icon">🛒</span>
+          <strong>自助充值</strong>
+          <small>shop.yuyanjia.top</small>
+        </a>
+        <div class="stat-card stat-card--count">
+          <span class="stat-icon">📚</span>
+          <strong>{guides.length} 篇教程</strong>
+          <small>持续更新中</small>
+        </div>
       </div>
     </section>
 
     <section class="guide-list" aria-labelledby="guides-title">
       <div class="section-heading">
-        <p class="eyebrow">Guides</p>
-        <h2 id="guides-title">教程列表</h2>
+        <div>
+          <p class="eyebrow">Guides</p>
+          <h2 id="guides-title">教程列表</h2>
+        </div>
+        <span class="section-count">{guides.length} 篇</span>
       </div>
 
       <div class="guide-grid">
@@ -44,7 +65,7 @@ const guides = Object.entries(guideModules)
                 <span class="guide-index">{String(guide.order).padStart(2, "0")}</span>
                 <h3>{guide.title}</h3>
                 <p>{guide.description}</p>
-                <span class="guide-action">查看教程</span>
+                <span class="guide-action">查看教程 <span class="arrow">→</span></span>
               </a>
             </article>
           ))
