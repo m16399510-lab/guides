@@ -173,7 +173,7 @@ function customizeGuideCopy(value) {
     <span>方案一</span>
     <strong>直购密钥</strong>
     <em>懒人首选</em>
-    <small>买完复制 sk- 密钥，可用余额查询页确认额度。</small>
+    <small>买完直接复制 sk- 密钥，粘贴进 APP 设置即可使用。</small>
     <b>适合：图方便、不想注册账号的同学。</b>
   </a>
   <a class="choice-card" href="#方案二注册账号充值额度">
@@ -211,14 +211,10 @@ function applyLatestGuideTweaks(value) {
 :::`;
 
   return value
-    .replace(
-      /(购买地址：\[https:\/\/shop\.yuyanjia\.top\/]\(https:\/\/shop\.yuyanjia\.top\/\))/u,
-      "$1\n\n密钥余额查询：[https://balance-checker.yuyanjia.top](https://balance-checker.yuyanjia.top)"
-    )
     .replace(/将分类切换至API，选择自己想要的额度/u, "分类切换至【API密钥】，选择自己想要的额度")
     .replace(
-      /(\*\*妥善保存：\*\* 建议立刻粘贴到你的备忘录或微信文件传输助手里备份。（省得以后找起来麻烦）。)/u,
-      "$1\n\n**查询余额：** 想确认密钥额度是否到账，可以打开 [密钥余额查询](https://balance-checker.yuyanjia.top)，粘贴刚才复制的 sk- 密钥查看。"
+      /OK，大功告成，现在就可以去聊天了！/u,
+      "OK，大功告成，现在就可以去聊天了！\n\n### 🔎 密钥余额查询\n\n如果想确认直购密钥的额度是否到账，或之后想看剩余额度，可以打开 [密钥余额查询](https://balance-checker.yuyanjia.top)，粘贴刚才复制的 sk- 密钥查看。"
     )
     .replace(/在分类中选择【API】/u, "分类切换至【API站充值】")
     .replace(

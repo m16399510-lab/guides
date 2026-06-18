@@ -18,7 +18,7 @@ source: "https://guides.yuyanjia.top/guides/yuyanjia-api"
     <span>方案一</span>
     <strong>直购密钥</strong>
     <em>懒人首选</em>
-    <small>买完复制 sk- 密钥，可用余额查询页确认额度。</small>
+    <small>买完直接复制 sk- 密钥，粘贴进 APP 设置即可使用。</small>
     <b>适合：图方便、不想注册账号的同学。</b>
   </a>
   <a class="choice-card" href="#方案二注册账号充值额度">
@@ -35,8 +35,6 @@ source: "https://guides.yuyanjia.top/guides/yuyanjia-api"
 ## 方案一：直购密钥
 
 购买地址：[https://shop.yuyanjia.top/](https://shop.yuyanjia.top/)
-
-密钥余额查询：[https://balance-checker.yuyanjia.top](https://balance-checker.yuyanjia.top)
 
 分类切换至【API密钥】，选择自己想要的额度
 
@@ -83,8 +81,6 @@ source: "https://guides.yuyanjia.top/guides/yuyanjia-api"
 
 **妥善保存：** 建议立刻粘贴到你的备忘录或微信文件传输助手里备份。（省得以后找起来麻烦）。
 
-**查询余额：** 想确认密钥额度是否到账，可以打开 [密钥余额查询](https://balance-checker.yuyanjia.top)，粘贴刚才复制的 sk- 密钥查看。
-
 :::
 
 回到我们的 APP，点击设置齿轮。
@@ -117,6 +113,10 @@ API 密钥栏：粘贴刚才复制的密钥。
 ![](/assets/yuyanjia-api/step-02.png)
 
 OK，大功告成，现在就可以去聊天了！
+
+### 🔎 密钥余额查询
+
+如果想确认直购密钥的额度是否到账，或之后想看剩余额度，可以打开 [密钥余额查询](https://balance-checker.yuyanjia.top)，粘贴刚才复制的 sk- 密钥查看。
 
 ## 方案二：注册账号，充值额度
 
