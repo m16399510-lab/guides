@@ -212,6 +212,10 @@ function applyLatestGuideTweaks(value) {
 
   return value
     .replace(/将分类切换至API，选择自己想要的额度/u, "分类切换至【API密钥】，选择自己想要的额度")
+    .replace(
+      /(\*\*妥善保存：\*\* 建议立刻粘贴到你的备忘录或微信文件传输助手里备份。（省得以后找起来麻烦）。)/u,
+      "$1\n\n**查询余额：** 想确认密钥额度是否到账，可以打开 [密钥余额查询](https://balance-checker.yuyanjia.top)，粘贴刚才复制的 sk- 密钥查看。"
+    )
     .replace(/在分类中选择【API】/u, "分类切换至【API站充值】")
     .replace(
       /:::color1\s*\n再次打开设置时，快速预设栏会跳回自定义，不用理会它\s*\n\*\*URL：\*\*\[https:\/\/api\.yuyanjia\.top\/v1]\(https:\/\/api\.yuyanjia\.top\/v1\)\s*\n\*{2,}密钥、模型\s*\n\*\*只需要核对这三个信息即可\*\*\s*\n:::/gu,

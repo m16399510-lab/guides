@@ -81,6 +81,8 @@ source: "https://guides.yuyanjia.top/guides/yuyanjia-api"
 
 **妥善保存：** 建议立刻粘贴到你的备忘录或微信文件传输助手里备份。（省得以后找起来麻烦）。
 
+**查询余额：** 想确认密钥额度是否到账，可以打开 [密钥余额查询](https://balance-checker.yuyanjia.top)，粘贴刚才复制的 sk- 密钥查看。
+
 :::
 
 回到我们的 APP，点击设置齿轮。
