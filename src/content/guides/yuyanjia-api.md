@@ -18,7 +18,7 @@ source: "https://guides.yuyanjia.top/guides/yuyanjia-api"
     <span>方案一</span>
     <strong>直购密钥</strong>
     <em>懒人首选</em>
-    <small>买完直接复制 sk- 密钥，粘贴进 APP 设置即可使用。</small>
+    <small>买完复制 sk- 密钥，可用余额查询页确认额度。</small>
     <b>适合：图方便、不想注册账号的同学。</b>
   </a>
   <a class="choice-card" href="#方案二注册账号充值额度">
@@ -35,6 +35,8 @@ source: "https://guides.yuyanjia.top/guides/yuyanjia-api"
 ## 方案一：直购密钥
 
 购买地址：[https://shop.yuyanjia.top/](https://shop.yuyanjia.top/)
+
+密钥余额查询：[https://balance-checker.yuyanjia.top](https://balance-checker.yuyanjia.top)
 
 分类切换至【API密钥】，选择自己想要的额度
 
