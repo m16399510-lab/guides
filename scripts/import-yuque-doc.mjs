@@ -180,7 +180,7 @@ function customizeGuideCopy(value) {
     <span>方案二</span>
     <strong>注册账号，充值额度</strong>
     <em>掌控全场</em>
-    <small>先注册 API 站账号，再用兑换码充值，可查看余额和消耗明细。</small>
+    <small>先注册 API 站账号，可支付宝直充或兑换码充值，可查看余额和消耗明细。</small>
     <b>适合：想看清楚钱花在哪的同学。</b>
   </a>
 </div>
@@ -210,12 +210,23 @@ function applyLatestGuideTweaks(value) {
 
 :::`;
 
+  const directTopupBranch = `#### 方式一：支付宝直充
+
+如果你想省去购买兑换码的步骤，可以直接在钱包管理里选择充值金额，付款方式选择【支付宝当面付】。
+
+支付宝直充会收取 **0.6% 手续费**，例如充值 10 元，需要支付 10.06 元。支付成功后额度会直接进入账号余额，不需要兑换码，也不会生成兑换码订单。
+
+#### 方式二：购买兑换码
+
+点击【购买兑换码】`;
+
   return value
     .replace(/将分类切换至API，选择自己想要的额度/u, "分类切换至【API密钥】，选择自己想要的额度")
     .replace(
       /OK，大功告成，现在就可以去聊天了！/u,
       "OK，大功告成，现在就可以去聊天了！\n\n### 🔎 密钥余额查询\n\n如果想确认直购密钥的额度是否到账，或之后想看剩余额度，可以打开 [密钥余额查询](https://balance-checker.yuyanjia.top)，粘贴刚才复制的 sk- 密钥查看。"
     )
+    .replace(/点击【购买兑换码】/u, directTopupBranch)
     .replace(/在分类中选择【API】/u, "分类切换至【API站充值】")
     .replace(
       /:::color1\s*\n再次打开设置时，快速预设栏会跳回自定义，不用理会它\s*\n\*\*URL：\*\*\[https:\/\/api\.yuyanjia\.top\/v1]\(https:\/\/api\.yuyanjia\.top\/v1\)\s*\n\*{2,}密钥、模型\s*\n\*\*只需要核对这三个信息即可\*\*\s*\n:::/gu,
