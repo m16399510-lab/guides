@@ -174,14 +174,14 @@ function customizeGuideCopy(value) {
     <strong>直购密钥</strong>
     <em>懒人首选</em>
     <small>买完直接复制 sk- 密钥，粘贴进 APP 设置即可使用。</small>
-    <b>适合：图方便、不想注册账号的同学。</b>
+    <b>适合：没有 QQ 邮箱，无法验证注册账号的同学。</b>
   </a>
   <a class="choice-card" href="#方案二注册账号充值额度">
     <span>方案二</span>
     <strong>注册账号，充值额度</strong>
     <em>掌控全场</em>
-    <small>先注册 API 站账号，可支付宝直充或兑换码充值，可查看余额和消耗明细。</small>
-    <b>适合：想看清楚钱花在哪的同学。</b>
+    <small>先注册 API 站账号（仅支持 QQ 邮箱验证），可支付宝直充或兑换码充值。</small>
+    <b>有签到及邀请福利，适合：想看清楚钱花在哪的同学。</b>
   </a>
 </div>
 
@@ -220,11 +220,24 @@ function applyLatestGuideTweaks(value) {
 
 点击【购买兑换码】`;
 
+  const registrationNote = `点击链接注册：[https://api.yuyanjia.top/sign-up](https://api.yuyanjia.top/sign-up)
+
+:::color1
+注册账号目前**仅支持 QQ 邮箱验证**。注册后可以使用每日签到和邀请福利，额度、充值记录、消耗明细也都可以在账号里查看。
+
+如果没有 QQ 邮箱，或收不到验证码，建议回到上面的【方案一：直购密钥】。
+
+:::`;
+
   return value
     .replace(/将分类切换至API，选择自己想要的额度/u, "分类切换至【API密钥】，选择自己想要的额度")
     .replace(
       /OK，大功告成，现在就可以去聊天了！/u,
       "OK，大功告成，现在就可以去聊天了！\n\n### 🔎 密钥余额查询\n\n如果想确认直购密钥的额度是否到账，或之后想看剩余额度，可以打开 [密钥余额查询](https://balance-checker.yuyanjia.top)，粘贴刚才复制的 sk- 密钥查看。"
+    )
+    .replace(
+      /点击链接注册：\[https:\/\/api\.yuyanjia\.top\/sign-up]\(https:\/\/api\.yuyanjia\.top\/sign-up\)(?!\s*\n+:::color1\s*\n+注册账号目前)/u,
+      registrationNote
     )
     .replace(/点击【购买兑换码】/u, directTopupBranch)
     .replace(/在分类中选择【API】/u, "分类切换至【API站充值】")
